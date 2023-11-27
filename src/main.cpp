@@ -11,8 +11,8 @@
 #include "addons/RTDBHelper.h"
 
 // Insert your network credentials
-#define WIFI_SSID "Ciki"
-#define WIFI_PASSWORD "kiky123321"
+#define WIFI_SSID "Redmi 10"
+#define WIFI_PASSWORD "12345678"
 
 // Insert Firebase project API Key
 #define API_KEY "AIzaSyCRcHHsibK-mdwIet-L-MNpXncMLykb2SA"
@@ -24,7 +24,7 @@
 // Insert RTDB URLefine the RTDB URL
 #define DATABASE_URL "https://monitoring-udara-ftui-default-rtdb.asia-southeast1.firebasedatabase.app/"
 
-#define MQ_PIN 4  //gas sensor
+#define MQ_PIN 35  //gas sensor
 #define AO 34     //sound sensor
 
 // Define Firebase objects
@@ -157,8 +157,10 @@ void loop() {
   delay(100);
 
   PeakToPeak = maximum_signal - minimum_signal; 
+
   //Serial.println(PeakToPeak);
   Decibels = map(PeakToPeak, 50, 500, 49.5, 90);  
+  Serial.print("dB: ");
   Serial.println(Decibels);
 
   timestamp = getTime();
@@ -166,7 +168,7 @@ void loop() {
   Serial.println (timestamp);
 
   // Send new readings to database
-  if (Firebase.ready() && (millis() - sendDataPrevMillis > timerDelay || sendDataPrevMillis == 0 && humanpresence == 1)){
+  if (Firebase.ready() && ((millis() - sendDataPrevMillis > timerDelay || sendDataPrevMillis == 0) || (Decibels > 75) || (air_quality > 100))){
     sendDataPrevMillis = millis();
 
     // Prints the distance in the Serial Monitor
