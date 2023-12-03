@@ -15,14 +15,14 @@
 #define WIFI_PASSWORD "12345678"
 
 // Insert Firebase project API Key
-#define API_KEY "AIzaSyCRcHHsibK-mdwIet-L-MNpXncMLykb2SA"
+#define API_KEY ""
 
 // Insert Authorized Email and Corresponding Password
 #define USER_EMAIL "rickypapudi@gmail.com"
 #define USER_PASSWORD "monitoringudaraftui"
 
 // Insert RTDB URLefine the RTDB URL
-#define DATABASE_URL "https://monitoring-udara-ftui-default-rtdb.asia-southeast1.firebasedatabase.app/"
+#define DATABASE_URL ""
 
 #define MQ_PIN 35  //gas sensor
 #define AO 34     //sound sensor
