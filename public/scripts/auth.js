@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function(){
           console.log("user logged in");
           console.log(user);
           setupUI(user);
-          var uid = user.uid;
+          var uid = 'NKUd9IhX3kUaACh3HZZp9XROPN93';
           console.log(uid);
         } else {
           console.log("user logged out");

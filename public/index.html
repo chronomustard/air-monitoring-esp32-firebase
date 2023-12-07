@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ESP Datalogging Firebase App</title>
+    <title>Dashboard Monitoring Udara FTUI</title>
 
     <!-- include Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
@@ -15,6 +15,14 @@
     <script>
       // Replace with your app config object
       const firebaseConfig = {
+        apiKey: "AIzaSyCRcHHsibK-mdwIet-L-MNpXncMLykb2SA",
+        authDomain: "monitoring-udara-ftui.firebaseapp.com",
+        databaseURL: "https://monitoring-udara-ftui-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "monitoring-udara-ftui",
+        storageBucket: "monitoring-udara-ftui.appspot.com",
+        messagingSenderId: "556007922754",
+        appId: "1:556007922754:web:7de30697a1dad8d377e1db",
+        measurementId: "G-GKYDKRC8FJ"
       };
 
       // Initialize firebase
@@ -79,6 +87,21 @@
         Cards: <input type="checkbox" id="cards-checkbox" name="cards-checkbox" checked>
         Charts: <input type="checkbox" id="charts-checkbox" name="charts-checkbox" unchecked>
       </p>
+
+
+      <div id="no-content-sign-in">
+        <br>
+        <label for="noiseInput">Noise threshold:</label>
+        <input type="number" id="noiseInput">
+        <br><br>
+        <label for="airInput">Air quality threshold:</label>
+        <input type="number" id="airInput">
+        <br>
+        <p>Noise threshold: <span id="noiseValue">70</span> dB</p>
+        <p>Air quality threshold: <span id="airValue">100</span> PPM</p>
+        <br>
+      </div>
+      
       <div id="cards-div">
         <div class="cards">
           <!--TEMPERATURE-->
@@ -94,12 +117,13 @@
         </div>
       </div>
 
-
       <!--CHARTS-->
       <div id="charts-div" style="display:none">
         <!--SET NUMBER OF READINGS INPUT FIELD-->
         <div>
+          <br>
           <p> Number of readings: <input type="number" id="charts-range"></p>
+          <br>
         </div>
         <!--TEMPERATURE-CHART-->
         <div class="cards">
@@ -116,7 +140,7 @@
           </div>
         </div>
       </div>
-
+      <br>
     <!--BUTTONS TO HANDLE DATA-->
     <p>
       <!--View data button-->
